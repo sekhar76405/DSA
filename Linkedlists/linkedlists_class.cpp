@@ -1,7 +1,14 @@
+//Topic Singly LinkedList
+//Link: https://www.geeksforgeeks.org/data-structures/linked-list/
+//from 1 to 6 problems
+
+//--------------------------------------------------------------------------------------------------------------------------------------------
 // key points to be kept in mind:
 // temp-> data  represents (*temp).data that means that temp is a Node type pointer
 // temp.data represents that temp is an complete object and we are accesing the data
 // Node *temp represent that a Node type pointer is created named temp. now we can store an obj address in temp
+//--------------------------------------------------------------------------------------------------------------------------------------------
+
 
 #include<iostream>
 using namespace std;
