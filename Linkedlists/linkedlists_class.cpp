@@ -105,19 +105,29 @@ void deleteNode(int data) {
 }
 
 void deleteAllNode(){
-	if(head == NULL)
+	if(head == NULL)	//checking for the edge case to stop recursion
 		return ;
 	Node *temp = head;
-	if(temp->next == NULL) {
+	if(temp->next == NULL) {	//if just 1 node is left in list then make manually head = NULL
 		head = NULL;
-		return deleteAllNode();
+		free(temp);		//deleting that one node
+		return deleteAllNode();		//recursive call
 	}
-	while((temp->next)->next != NULL){
+
+	// Now if we want to delete a Node we want its previous node address also as we did in deleteNode() func
+	// so without having another loop to find the prev Node address 
+	// we are just traersing till the previous node and using (previous_node -> next) as current last node
+	// thus if previous_node = temp->next,, then curr node will be (temp->next)->next
+	// everything is same in all the while loops for traversing. instead of temp->next we are using (temp->next)->next
+	// to eliminate one extra loop time to find prev node address
+
+	while((temp->next)->next != NULL){		//reaching the last node by using its previous node -> next
 		(temp->next) = (temp->next)->next;
 	}
-	free((temp->next));
-	temp->next = NULL; 
-	return deleteAllNode();
+	
+	free((temp->next)); 	// deleteing the last node
+	temp->next = NULL; 		//setting the previous node next pointer NULL
+	return deleteAllNode();	//recursive call
 }
 
 
