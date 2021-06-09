@@ -104,6 +104,22 @@ void deleteNode(int data) {
 		previous->next = temp->next; //saving the next upcoming node address to the prev Node next pointer
 }
 
+void deleteAllNode(){
+	if(head == NULL)
+		return ;
+	Node *temp = head;
+	if(temp->next == NULL) {
+		head = NULL;
+		return deleteAllNode();
+	}
+	while((temp->next)->next != NULL){
+		(temp->next) = (temp->next)->next;
+	}
+	free((temp->next));
+	temp->next = NULL; 
+	return deleteAllNode();
+}
+
 
 
 // to print the whole list
@@ -118,6 +134,7 @@ void printList() {
 	free(temp);
 }
 
+
 int main()
 {
 	insertAtEnd(10);
@@ -128,6 +145,14 @@ int main()
 	printList();
 	
 	deleteNode(50);
+	printList();
+	
+	deleteAllNode();
+	printList();
+	
+	insertAtEnd(10);
+	printList();
+	insertAtEnd(20);
 	printList();
 	return 0;
 }
