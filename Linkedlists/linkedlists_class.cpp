@@ -104,6 +104,7 @@ void deleteNode(int data) {
 		previous->next = temp->next; //saving the next upcoming node address to the prev Node next pointer
 }
 
+//function to delete all node in the list, i.e. to empty the list
 void deleteAllNode(){
 	if(head == NULL)	//checking for the edge case to stop recursion
 		return ;
@@ -130,11 +131,12 @@ void deleteAllNode(){
 	return deleteAllNode();	//recursive call
 }
 
+//to find the length of the list
 long int findLength(){
-	if(head == NULL)
+	if(head == NULL)	//if head is only null then simply return 0 
 		return 0;
-	else {
-			long int len = 1;
+	else {				//else iterate till end of list
+		long int len = 1;
 		Node* temp = head;
 		while(temp->next != NULL){
 			temp = temp->next;
@@ -142,7 +144,6 @@ long int findLength(){
 		}
 		return len;
 	}
-
 }
 
 // to print the whole list
