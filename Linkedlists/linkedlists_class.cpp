@@ -130,7 +130,20 @@ void deleteAllNode(){
 	return deleteAllNode();	//recursive call
 }
 
+long int findLength(){
+	if(head == NULL)
+		return 0;
+	else {
+			long int len = 1;
+		Node* temp = head;
+		while(temp->next != NULL){
+			temp = temp->next;
+			len++;
+		}
+		return len;
+	}
 
+}
 
 // to print the whole list
 void printList() {
@@ -153,16 +166,19 @@ int main()
 	insertAtNode((head->next),40);
 	insertAtFront(50);
 	printList();
+	cout<<"Length of the List = "<<findLength()<<endl;
 	
 	deleteNode(50);
 	printList();
 	
 	deleteAllNode();
 	printList();
-	
+	cout<<"Length of the List = "<<findLength()<<endl;
+
 	insertAtEnd(10);
 	printList();
 	insertAtEnd(20);
 	printList();
+	cout<<"Length of the List = "<<findLength()<<endl;
 	return 0;
 }
