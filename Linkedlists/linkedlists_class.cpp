@@ -146,6 +146,21 @@ long int findLength(){
 	}
 }
 
+
+void printNthIndexNode(long int n){
+	Node *temp = head;
+	if(n>findLength()-1)
+		cout<<"Invalid input for nth node. Max Nodes: "<<findLength()<<endl;
+	else {
+		long int flag = 0;
+		Node* temp = head;
+		for(long int i = 0;i<n;i++){
+			temp = temp->next;
+		}
+		cout<<"Value at n = "<<n<<" is "<<temp->data<<endl;
+	}
+}
+
 // to print the whole list
 void printList() {
 	Node *temp = head;
@@ -168,6 +183,8 @@ int main()
 	insertAtFront(50);
 	printList();
 	cout<<"Length of the List = "<<findLength()<<endl;
+	printNthIndexNode(4);
+	printNthIndexNode(5);
 	
 	deleteNode(50);
 	printList();
@@ -181,5 +198,7 @@ int main()
 	insertAtEnd(20);
 	printList();
 	cout<<"Length of the List = "<<findLength()<<endl;
+	
+	printNthIndexNode(0);
 	return 0;
 }
