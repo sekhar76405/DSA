@@ -146,16 +146,17 @@ long int findLength(){
 	}
 }
 
-
+//to print data of Node at index n (n is 0 based indexing)
 void printNthIndexNode(long int n){
 	Node *temp = head;
-	if(n>findLength()-1)
+	if(n>findLength()-1)		//checking if input is with in length of list
 		cout<<"Invalid input for nth node. Max Nodes: "<<findLength()<<endl;
 	else {
 		long int flag = 0;
 		Node* temp = head;
-		for(long int i = 0;i<n;i++){
-			temp = temp->next;
+
+		for(long int i = 0;i<n;i++){ //loop wont start if only 1 node exist temp->next wont get seg fault
+			temp = temp->next;	
 		}
 		cout<<"Value at n = "<<n<<" is "<<temp->data<<endl;
 	}
