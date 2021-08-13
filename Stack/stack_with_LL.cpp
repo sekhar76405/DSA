@@ -22,13 +22,26 @@ void push(int data){
         temp = top;
         top = create_Node(data);
         top->next  = temp;
+        free(temp);
     }
-
 } 
+
+void display(){
+    Node *temp = new Node;
+    temp = top;
+    cout<<"Stack: \n";
+    while(temp != NULL){
+        cout<<temp->data<<endl;
+        temp = temp->next;
+    }
+    free(temp);
+}
 
 int main(){
 
-
+    push(10);
+    push(20);
+    display();
 
 
     return 0;
